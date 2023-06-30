@@ -2,7 +2,6 @@
 
 Aplicación desarrollada utilizando Quarkus, Camel 3, JPA, Hibernate y rutas REST. La aplicación realiza operaciones CRUD en una base de datos utilizando JPA, y utiliza Camel para exponer puntos de acceso REST. También se proporcionan ejemplos de cómo manejar logs en Camel y configuraciones de Quarkus, cómo manejar excepciones, procesar datos de consultas y aplicar lógica de negocios. Además, se incluyen pruebas JUnit 5 con Camel y una carpeta "openshift" con configuraciones de rutas para OpenShift.
 
-
 # Contenido
 - [x] Endpoints Rest Camel
 - [x] Recibir y producir JSON
@@ -48,18 +47,35 @@ La carpeta openshift contiene el archivo route-config.yaml, que proporciona conf
 # Comandos
 A continuación se presentan algunos comandos útiles para utilizar la aplicación:
 
-#### Ejecutar la aplicación en modo de desarrollo:
+# Crear nuestro arquertipo
+Creando una nueva carpeta a la altura raiz y abriendo una terminal, podemos utilizar este comando para generar un proyecto base.
 
-./mvnw compile quarkus:dev
-Empaquetar y ejecutar la aplicación:
+mvn archetype:generate   
+-DarchetypeGroupId=com.mx.banorte.services   
+-DarchetypeArtifactId=baseservice-rest-databese-crud-archetype   
+-DarchetypeVersion=1.0.0-SNAPSHOT   
+-DgroupId=com.example   
+-DartifactId=my-project   
+-Dversion=1.0.0   
+-Dpackage=com.example.myproject
 
-./mvnw package
-java -jar target/quarkus-app/quarkus-run.jar
-Crear un ejecutable nativo:
+    -DarchetypeGroupId: Especifica el ID del grupo (Group ID) del arquetipo que deseas utilizar para generar el proyecto. En este caso, el valor es com.mx.banorte.services.
 
-./mvnw package -Pnative
-Ejecutar el ejecutable nativo en un contenedor:
+    -DarchetypeArtifactId: Especifica el ID del artefacto (Artifact ID) del arquetipo que deseas utilizar. En este caso, el valor es baseservice-rest-databese-crud-archetype.
 
-./mvnw package -Pnative -Dquarkus.native.container-build=true
+    -DarchetypeVersion: Especifica la versión del arquetipo que deseas utilizar. En este caso, el valor es 1.0.0-SNAPSHOT.
+
+    -DgroupId: Especifica el ID del grupo (Group ID) que se utilizará para el nuevo proyecto que se generará. En este caso, el valor es com.example. Puedes ajustar este valor según tu propia estructura de paquetes y convenciones de nomenclatura.
+
+    -DartifactId: Especifica el ID del artefacto (Artifact ID) para el nuevo proyecto. En este caso, el valor es my-project. Puedes ajustar este valor según el nombre que desees darle a tu proyecto.
+
+    -Dversion: Especifica la versión del nuevo proyecto. En este caso, el valor es 1.0.0. Puedes ajustar este valor según tus propias convenciones de versión.
+
+    -Dpackage: Especifica el paquete base que se utilizará para las clases generadas en el nuevo proyecto. En este caso, el valor es com.example.myproject. Puedes ajustar este valor según tu propia estructura de paquetes.
+
+    El comando mvn archetype:generate combina estos parámetros para generar un nuevo proyecto utilizando el arquetipo especificado. El resultado será una estructura de proyecto básica con la configuración y los archivos iniciales necesarios para comenzar a desarrollar
+
+
+
 
 
